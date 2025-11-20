@@ -140,8 +140,8 @@
                     <select id="periodeFilter" class="form-select">
                         <option value="">Semua Periode</option>
                         <?php
-                        if (!empty($sandaran_kiri)):
-                            $uniquePeriods = array_unique(array_map(fn($p) => $p['periode'] ?? '-', $sandaran_kiri));
+                        if (!empty($pengukuran)):
+                            $uniquePeriods = array_unique(array_map(fn($p) => $p['periode'] ?? '-', $pengukuran));
                             sort($uniquePeriods);
                             foreach ($uniquePeriods as $period):
                                 if ($period === '-') continue;

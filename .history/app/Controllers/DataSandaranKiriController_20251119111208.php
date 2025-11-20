@@ -3,17 +3,13 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\SandaranKiri\DataSandaranKiriModel;
+use App\Models\DataSandaranKiriModel;
 
 class DataSandaranKiriController extends BaseController
 {
     public function SandaranKiri()
     {
-        $model = new DataSandaranKiriModel();
-
-        $data =['sandaran_kiri' => $model->findAll()];
-
-        return view('Data/Sandaran_Kiri/data_sandaran_kiri', $data);
+        return view('Data/Sandaran_Kiri/data_sandaran_kiri');
     }
 
     public function AddData()
@@ -23,27 +19,27 @@ class DataSandaranKiriController extends BaseController
 
     public function store()
     {
-        $model = new DataSandaranKiriModel();
+        $model = new SandaranKiriModel();
 
         $data = [
             'tahun'        => $this->request->getPost('tahun'),
             'periode'      => $this->request->getPost('periode'),
             'tanggal'      => $this->request->getPost('tanggal'),
-            'dma'    => $this->request->getPost('dma'),
-            'ch_bulanan'  => $this->request->getPost('ch_bulanan'),
+            'dma_waduk'    => $this->request->getPost('dma_waduk'),
+            'curah_hujan'  => $this->request->getPost('curah_hujan'),
         ];
 
         // Loop L1–L10
         for ($i = 1; $i <= 10; $i++) {
-            $num = str_pad($i, 2, '0', STR_PAD_LEFT);
-            $data["l{$num}_feet"] = $this->request->getPost("l{$num}_feet");
-            $data["l{$num}_inch"] = $this->request->getPost("l{$num}_inch");
+            $data["srL_{$i}_feet"] = $this->request->getPost("srL_{$i}_feet");
+            $data["srL_{$i}_inch"] = $this->request->getPost("srL_{$i}_inch");
         }
 
         // Loop SPZ-1..2
-        $data["spz02_feet"] = $this->request->getPost("spz02_feet");
-        $data["spz02_inch"] = $this->request->getPost("spz02_inch");
-
+        for ($i = 1; $i <= 2; $i++) {
+            $data["spz_{$i}_feet"] = $this->request->getPost("spz_{$i}_feet");
+            $data["spz_{$i}_inch"] = $this->request->getPost("spz_{$i}_inch");
+        }
 
         if ($model->insert($data)) {
             return redirect()

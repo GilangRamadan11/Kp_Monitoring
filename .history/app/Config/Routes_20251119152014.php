@@ -73,7 +73,7 @@
     // --- Sandaran Kiri (non API) ---
 
     // web routes sandaran kiri
-    $routes->get('/input-data-sandaran-kiri','DataSandaranKiriController::SandaranKiri');
+    $routes->get('/input-data-sandaran-kiri','DataSandaranKiriController::index');
 
 
     // --- Data input Sandaran Kiri ---

@@ -3,17 +3,13 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\SandaranKiri\DataSandaranKiriModel;
+use App\Models\DataSandaranKiriModel;
 
 class DataSandaranKiriController extends BaseController
 {
     public function SandaranKiri()
     {
-        $model = new DataSandaranKiriModel();
-
-        $data =['sandaran_kiri' => $model->findAll()];
-
-        return view('Data/Sandaran_Kiri/data_sandaran_kiri', $data);
+        return view('Data/Sandaran_Kiri/data_sandaran_kiri');
     }
 
     public function AddData()
@@ -41,9 +37,10 @@ class DataSandaranKiriController extends BaseController
         }
 
         // Loop SPZ-1..2
-        $data["spz02_feet"] = $this->request->getPost("spz02_feet");
-        $data["spz02_inch"] = $this->request->getPost("spz02_inch");
-
+        for ($i = 1; $i <= 2; $i++) {
+            $data["spz_{$i}_feet"] = $this->request->getPost("spz_{$i}_feet");
+            $data["spz_{$i}_inch"] = $this->request->getPost("spz_{$i}_inch");
+        }
 
         if ($model->insert($data)) {
             return redirect()

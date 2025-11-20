@@ -334,10 +334,17 @@
 
                             <!-- Sesuaikan dengan controller: dma_feet & dma_inch -->
                             <div class="form-group">
-                                <label class="form-label">DMA</label>
+                                <label class="form-label">DMA (Feet / Inch)</label>
+                                <div class="value-code-group">
+                                    <input type="number" step="0.01" class="form-control" name="dma_feet" placeholder="Feet">
+                                    <input type="number" step="0.01" class="form-control" name="dma_inch" placeholder="Inch">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ch_bulanan" class="form-label">CH Bulanan</label>
                                 <div class="input-group-icon">
-                                    <i class="fas fa-ruler"></i>
-                                    <input type="number" step="0.01" class="form-control" name="dma">
+                                    <i class="fas fa-cloud-rain"></i>
+                                    <input type="number" step="0.1" class="form-control" id="ch_bulanan" name="ch_bulanan">
                                 </div>
                             </div>
 

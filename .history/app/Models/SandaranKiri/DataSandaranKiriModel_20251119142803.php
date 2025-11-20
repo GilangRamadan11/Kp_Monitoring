@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\SandaranKiri;
+namespace App\Models;
 
 use CodeIgniter\Model;
 

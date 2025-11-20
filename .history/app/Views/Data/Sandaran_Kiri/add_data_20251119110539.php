@@ -337,7 +337,7 @@
                                 <label class="form-label">DMA</label>
                                 <div class="input-group-icon">
                                     <i class="fas fa-ruler"></i>
-                                    <input type="number" step="0.01" class="form-control" name="dma">
+                                    <input type="number" step="0.01" class="form-controlt" name="dma">
                                 </div>
                             </div>
 

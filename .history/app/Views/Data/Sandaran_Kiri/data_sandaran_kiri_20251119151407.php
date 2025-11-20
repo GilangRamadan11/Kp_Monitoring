@@ -95,8 +95,8 @@
                     <select id="tahunFilter" class="form-select">
                         <option value="">Semua Tahun</option>
                         <?php
-                        if (!empty($sandaran_kiri)):
-                            $uniqueYears = array_unique(array_map(fn($p) => $p['tahun'] ?? '-', $sandaran_kiri));
+                        if (!empty($pengukuran)):
+                            $uniqueYears = array_unique(array_map(fn($p) => $p['tahun'] ?? '-', $pengukuran));
                             sort($uniqueYears);
                             foreach ($uniqueYears as $year):
                                 if ($year === '-') continue;
@@ -140,8 +140,8 @@
                     <select id="periodeFilter" class="form-select">
                         <option value="">Semua Periode</option>
                         <?php
-                        if (!empty($sandaran_kiri)):
-                            $uniquePeriods = array_unique(array_map(fn($p) => $p['periode'] ?? '-', $sandaran_kiri));
+                        if (!empty($pengukuran)):
+                            $uniquePeriods = array_unique(array_map(fn($p) => $p['periode'] ?? '-', $pengukuran));
                             sort($uniquePeriods);
                             foreach ($uniquePeriods as $period):
                                 if ($period === '-') continue;

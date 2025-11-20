@@ -3,17 +3,13 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\SandaranKiri\DataSandaranKiriModel;
+use App\Models\DataSandaranKiriModel;
 
 class DataSandaranKiriController extends BaseController
 {
     public function SandaranKiri()
     {
-        $model = new DataSandaranKiriModel();
-
-        $data =['sandaran_kiri' => $model->findAll()];
-
-        return view('Data/Sandaran_Kiri/data_sandaran_kiri', $data);
+        return view('Data/Sandaran_Kiri/data_sandaran_kiri');
     }
 
     public function AddData()

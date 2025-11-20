@@ -13,7 +13,7 @@ class DataSandaranKiriController extends BaseController
 
         $data =['sandaran_kiri' => $model->findAll()];
 
-        return view('Data/Sandaran_Kiri/data_sandaran_kiri', $data);
+        return view('Data/Sandaran_Kiri/data_sandaran_kiri', );
     }
 
     public function AddData()

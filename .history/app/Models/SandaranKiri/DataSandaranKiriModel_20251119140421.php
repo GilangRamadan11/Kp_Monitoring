@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\SandaranKiri;
+namespace App\Models;
 
 use CodeIgniter\Model;
 
@@ -31,10 +31,10 @@ class DataSandaranKiriModel extends Model
         'spz02_feet',
         'spz02_inch',
 
+        // created_at otomatis
+        'created_at'
     ];
 
-    protected $useTimestamps = true;
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
-    
+    protected $useTimestamps = true; // created_at otomatis
+    protected $createdField  = 'created_at';
 }

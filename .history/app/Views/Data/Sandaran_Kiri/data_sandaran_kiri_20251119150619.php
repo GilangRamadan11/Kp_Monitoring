@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,8 +94,8 @@
                     <select id="tahunFilter" class="form-select">
                         <option value="">Semua Tahun</option>
                         <?php
-                        if (!empty($sandaran_kiri)):
-                            $uniqueYears = array_unique(array_map(fn($p) => $p['tahun'] ?? '-', $sandaran_kiri));
+                        if (!empty($pengukuran)):
+                            $uniqueYears = array_unique(array_map(fn($p) => $p['tahun'] ?? '-', $pengukuran));
                             sort($uniqueYears);
                             foreach ($uniqueYears as $year):
                                 if ($year === '-') continue;
@@ -140,8 +139,8 @@
                     <select id="periodeFilter" class="form-select">
                         <option value="">Semua Periode</option>
                         <?php
-                        if (!empty($sandaran_kiri)):
-                            $uniquePeriods = array_unique(array_map(fn($p) => $p['periode'] ?? '-', $sandaran_kiri));
+                        if (!empty($pengukuran)):
+                            $uniquePeriods = array_unique(array_map(fn($p) => $p['periode'] ?? '-', $pengukuran));
                             sort($uniquePeriods);
                             foreach ($uniquePeriods as $period):
                                 if ($period === '-') continue;
@@ -161,33 +160,34 @@
             </div>
         </div>
 
-        <table border ="1" cellpadding="8">
-            <thead>
-                <tr>
-                    <th>Tahun</th>
-                    <th>Periode</th>
-                    <th>Tanggal</th>
-                    <th>DMA</th>
-                    <th>CH Bulanan</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($sandaran_kiri as $row): ?>
-                    <tr>
-                        <td><?= esc($row['tahun']) ?></td>
-                        <td><?= esc($row['periode']) ?></td>
-                        <td><?= esc($row['tanggal']) ?></td>
-                        <td><?= esc($row['dma']) ?></td>
-                        <td><?= esc($row['ch_bulanan']) ?></td>
-                    </tr>
-                <?php endforeach ?>
-            </tbody>
-        </table>
+        <table border="1" cellpadding="8">
+    <thead>
+        <tr>
+            <th>Tahun</th>
+            <th>Periode</th>
+            <th>Tanggal</th>
+            <th>DMA</th>
+            <th>CH Bulanan</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($sandaran_kiri as $row): ?>
+            <tr>
+                <td><?= esc($row['tahun']) ?></td>
+                <td><?= esc($row['periode']) ?></td>
+                <td><?= esc($row['tanggal']) ?></td>
+                <td><?= esc($row['dma']) ?></td>
+                <td><?= esc($row['ch_bulanan']) ?></td>
+            </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>
 
-
+        
 
 
     </div>
 </body>
 
 </html>
+
